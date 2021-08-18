@@ -14,18 +14,69 @@
         <a [style.color]="'blue'" [href]="'https://ngrx.io/docs'">NgRx Documentation</a>
         <ion-img [src]="'./assets/ngrx/state-management-lifecycle.png'"></ion-img>
 
-          Principio SHARI:
+        <ion-list>
+          <ion-list-header>
+            Principio SHARI:
+          </ion-list-header>
+          <ion-item lines="none">
+            <ion-label>
+              Shared: Estado que es accesado por varios componentes y servicios.
+            </ion-label>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label>
+              Hydrated: Estado que es persitido y rehidratado desde un storage externo.
+            </ion-label>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label>
+              Available: Estado que necesita estar disponible cuando se vuelve a entrar a rutas.
+            </ion-label>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label>
+              Retrieved: Estado que debe ser retornado por un side-effect.
+            </ion-label>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label>
+              Impacted: Estado que es impactado por acciones de otras fuentes.
+            </ion-label>
+          </ion-item>
+        </ion-list>
 
-          Shared: Estado que es accesado por varios componentes y servicios.
+      </ion-card-content>
+    </ion-card-header>
+  </ion-card>
 
-          Hydrated: Estado que es persitido y rehidratado desde un storage externo.
 
-          Available: Estado que necesita estar disponible cuando se vuelve a entrar a rutas.
 
-          Retrieved: Estado que debe ser retornado por un side-effect.
-
-          Impacted: Estado que es impactado por acciones de otras fuentes.
-
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        Store
+      </ion-card-title>
+      <ion-card-content>
+        <ion-list>
+          <ion-list-header>
+            <ion-label>Arquitectura</ion-label>
+          </ion-list-header>
+          <ion-item lines="none">
+            <ion-label>
+              - Actions
+            </ion-label>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label>
+              - Reducers
+            </ion-label>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label>
+              - Selectors
+            </ion-label>
+          </ion-item>
+        </ion-list>
       </ion-card-content>
     </ion-card-header>
   </ion-card>
@@ -36,14 +87,33 @@
         Actions
       </ion-card-title>
     </ion-card-header>
-  </ion-card>
+    <ion-card-content>
+      <pre>
+        <code>
+          interface Action
+          type: string;
+        </code>
+      </pre>
 
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>
-        Store
-      </ion-card-title>
-    </ion-card-header>
+      <ion-button (click)="dispatchTest()">
+        DISPATCH TEST
+      </ion-button>
+
+      <ion-button (click)="dispatchData()">
+        DISPATCH DATA
+      </ion-button>
+
+      <pre>
+
+        Selector
+
+        <code>
+          $data
+
+          {{ $data | async | json }}
+        </code>
+      </pre>
+    </ion-card-content>
   </ion-card>
 
   <ion-card>
@@ -52,6 +122,18 @@
         Effects
       </ion-card-title>
     </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-list-header>
+          Catfacts:
+        </ion-list-header>
+        <ng-container *ngIf="($catfacts | async) as catfacts">
+          <ion-item lines="none" *ngFor="let catfact of catfacts">
+            {{ catfact.fact ?? 'no hay fact' }}
+          </ion-item>
+        </ng-container>
+      </ion-list>
+    </ion-card-content>
   </ion-card>
 
 

@@ -10,6 +10,11 @@ import {HIGHLIGHT_OPTIONS, HighlightModule} from "ngx-highlightjs";
 import { StoreModule } from '@ngrx/store';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import * as exampleReducer from './pages/example-ngrx/store/example-ngrx.reducer';
+import {EffectsModule} from "@ngrx/effects";
+import {ExampleNgrxEffects} from "./pages/example-ngrx/store/example-ngrx.effects";
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,7 +32,14 @@ import {HttpClientModule} from "@angular/common/http";
     ReactiveFormsModule,
     FormsModule,
 
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({
+      example: exampleReducer.reducer
+    }, {}),
+    EffectsModule.forRoot([
+      ExampleNgrxEffects
+    ]),
+
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
