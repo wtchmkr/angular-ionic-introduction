@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Componentes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Generar un componente</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      En Angular y en Ionic es sencillo generar un componente.
+
+      <pre>
+        <a [style.color]="'blue'" [href]="'https://angular.io/cli/generate'">Angular Doc</a>
+        <code>
+          ng generate component $componentName
+          ng generate service $componentName
+        </code>
+      </pre>
+
+
+      <pre>
+        <a [style.color]="'blue'" [href]="'https://ionicframework.com/docs/cli/commands/generate'">Ionic Doc</a>
+        <code>
+          ionic generate page $name
+          ionic generate component $name
+          ionic generate directive $name
+          ionic generate service $name
+        </code>
+      </pre>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>¿De qué se componen?</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-img [src]="'./assets/example/component generated.png'"></ion-img>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <app-test-component></app-test-component>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

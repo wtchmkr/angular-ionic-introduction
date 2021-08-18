@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>NgRx</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        ¿Qué es NGRX?
+      </ion-card-title>
+      <ion-card-content>
+        <a [style.color]="'blue'" [href]="'https://ngrx.io/docs'">NgRx Documentation</a>
+        <ion-img [src]="'./assets/ngrx/state-management-lifecycle.png'"></ion-img>
+
+          Principio SHARI:
+
+          Shared: Estado que es accesado por varios componentes y servicios.
+
+          Hydrated: Estado que es persitido y rehidratado desde un storage externo.
+
+          Available: Estado que necesita estar disponible cuando se vuelve a entrar a rutas.
+
+          Retrieved: Estado que debe ser retornado por un side-effect.
+
+          Impacted: Estado que es impactado por acciones de otras fuentes.
+
+      </ion-card-content>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        Actions
+      </ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        Store
+      </ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        Effects
+      </ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+
+</ion-content>

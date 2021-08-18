@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Forms</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        <h4> Formulario </h4>
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <form [formGroup]="form">
+          <ion-item>
+            <ion-label position="floating">Nombre</ion-label>
+            <ion-input [formControlName]="'name'"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Apellido</ion-label>
+            <ion-input [formControlName]="'lastName'"></ion-input>
+          </ion-item>
+        </form>
+      </ion-list>
+      <ion-button (click)="submit()">
+        Submit
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      {{ formResult }}
+      <pre>
+        <code>
+          {{ formValue | json }}
+        </code>
+      </pre>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
